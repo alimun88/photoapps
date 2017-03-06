@@ -1,1 +1,42 @@
-<h1>Welcome to Photo Application</h1>
+<div>
+    <% if current_user %>
+        <h2>Welcome, <%= current_user.email %></h2>
+    <% else %>
+        <div class='jumbotron'>
+           <div class='jumbotron-text'>
+            <h1>Photo-App</h1>
+            <h3>Manage all your photos online</h3>
+            <h5>Sign up below to get started</h5>
+           </div>
+        </div>
+        <div class= 'row'>
+               <div class='plans clearfix'>
+                   <div class='col-md-4 col-md-offset-2 plan'>
+                       <h2>Premium Plan</h2>
+                           <div class='pull-right'>Price: $10</div>
+                      <div class='features'>
+                           <ul>
+                               <li>Unlimited Image Uploads</li>
+                               <li>Responsive Design</li>
+                               <li>Access anywhere</li>
+                           </ul></br>
+                       <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-sm btn-primary btn-block' %>
+                      </div>
+                   </div>
+                   <div class='col-md-4 plan'>
+                       <h2>Amaze Plan</h2>
+                       <div class='pull-right'>Price: $20</div>
+                          <div class= 'features'>
+                           <ul>
+                               <li>Unlimited Image Uploads</li>
+                               <li>Responsive Design</li>
+                               <li>Access anywhere</li>
+                               <li>Unlimited projects</li>
+                           </ul>
+                           <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-sm btn-primary btn-block' %>
+                          </div>
+                   </div>
+               </div>
+           </div>
+    <% end %>
+</div>
