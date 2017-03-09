@@ -1,5 +1,5 @@
 class ContactsController < ApplicationController
-    skip_before_action :authenticate_user!, only: [:new]
+    skip_before_action :authenticate_user!
     
   def new
     @contact = Contact.new
@@ -8,9 +8,11 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
-      redirect_to new_contact_path, notice: "Message sent."
+      flash[:success] = "Message sent Susscessfully"
+      redirect_to new_contact_path
     else
-      redirect_to new_contact_path, notice: "Error occured."
+      flash[:danger] = @contact.errors.full_messages.join(", ")
+      redirect_to new_contact_path
     end
   end
 
