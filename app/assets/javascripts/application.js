@@ -15,3 +15,12 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+
+/* global $ */
+//Document ready.
+$(document).on('turbolinks:load', function(){
+    
+    $(".alert").delay(2000).fadeOut(5000);
+    
+});
+
