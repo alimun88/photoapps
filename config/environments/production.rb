@@ -9,6 +9,16 @@ Rails.application.configure do
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
+  require 'mail'
+
+  Mail.defaults do
+    delivery_method :smtp, {
+      :port      => 587,
+      :address   => "smtp.mailgun.org",
+      :user_name => "ayon88@hotmail.com",
+      :password  => "AllyMoon88",
+    }
+  end
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
