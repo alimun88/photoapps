@@ -1,6 +1,11 @@
 class ContactsController < ApplicationController
     skip_before_action :authenticate_user!
     
+  name = params[:contact][:name]
+  email = params[:contact][:email]
+  body = params[:contact][:comments]
+  ContactMailer.contact_email(name, email, body).deliver
+
   def new
     @contact = Contact.new
   end
